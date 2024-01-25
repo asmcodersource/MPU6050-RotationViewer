@@ -1,0 +1,39 @@
+﻿<Window x:Class="SystemMPU6050.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemMPU6050"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="Black"></Border>
+        
+        <Viewport3D Name="mainViewport">
+            <Viewport3D.Camera>
+                <PerspectiveCamera x:Name="camera" Position="5,5,5" LookDirection="-1,-1,-1" UpDirection="0,1,0"/>
+            </Viewport3D.Camera>
+
+            <ModelVisual3D x:Name="planeModel">
+            </ModelVisual3D>
+
+            <ModelVisual3D x:Name="mainScene">
+                <ModelVisual3D.Content>
+                    <Model3DGroup>
+                        <PointLight Color="White" Position="0 10 0"></PointLight>
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+            
+        </Viewport3D>
+
+        <StackPanel Grid.Column="2">
+            <Button Content="Click..." Click="MoveCubeButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

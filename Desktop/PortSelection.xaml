@@ -1,0 +1,24 @@
+﻿<Window x:Class="SystemMPU6050.PortSelection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemMPU6050"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="COM-port selection" Height="190" Width="421">
+    <StackPanel  Width="auto" Height="176" VerticalAlignment="Top">
+        <StackPanel Width="auto" Margin="5 5" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <Label>COM port:</Label>
+            <ComboBox  
+                SelectionChanged="ComboBox_SelectionChanged"
+                DropDownOpened="PortComboBoxOpened"  
+                Width="329" MinWidth="300" x:Name="portsBox"/>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10 7" TextAlignment="Justify" TextWrapping="WrapWithOverflow">Select the COM port to which the Arduino microcontroller is connected, with the inertial tracking system firmware installed. Keep in mind that using the wrong port can lead to communication disruptions with the device using it.</TextBlock>
+
+        <StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
+            <Button Name="selectButton" IsEnabled="False" Click="SelectClicked" Margin="10 0" Padding="20 3">Select</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
